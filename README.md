@@ -25,3 +25,9 @@ In this case study, I will take on the role of a junior data analyst performing 
 ## Background and Business Question
 
 ### Cyclistic
+
+Cyclistic, a bike-share company in Chicago, launched in 2016 a successful bike-share offering. Since then, has grown to 5,824 geotracked bicycles and locked into a network of 692 stations across Chicago. Cyclistic bikes can be accessed from one station and returned to any other station in the network, anytime. This bike-share program includes traditional bikes and more inclusive options like reclining bikes, hand tricycles, and cargo bikes useful to people with disabilities and riders who can’t use a standard two-wheeled bike. While most users ride for leisure, 30% use the bikes for commuting to work each day.
+
+Cyclistic offers flexible pricing plans: single-ride passes, full-day passes (for casual riders), and annual memberships (for members). Cyclistic’s finance analysts have found that annual members are more profitable, and the director of marketing sees an opportunity to grow by converting casual riders into members, as they are already familiar with the Cyclistic program. Rather than targeting all-new customers, she believes the focus should be on converting casual riders into members, as they are already familiar with Cyclistic and rely on it for their mobility needs.
+
+
