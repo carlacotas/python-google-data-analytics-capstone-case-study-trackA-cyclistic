@@ -103,7 +103,7 @@ This study analyzes and identifies trends from the previous 12 months: January 2
 
 ### Data Preparation
 
-> ⚠️ **Note:** Im my [previous implementation](https://github.com/carlacotas/google-data-analytics-capstone-case-study-trackA-cyclistic) I used Posit’s RStudio and I could only complete this project in R focusing the first previous 6 months: November 2023 to April 2024 (‘202311-divvy-tripdata.csv’ → ‘202404-divvy-tripdata.csv’) because Posit’s RStudio not crashed due to Memory Usage. However, using Python for this project, I dodn't have this Memory Usage problem and I was able to do a more complete analysis, completing further anaysis points identified in the previous study in R. 
+> ⚠️ **Note:** Im my [previous implementation](https://github.com/carlacotas/google-data-analytics-capstone-case-study-trackA-cyclistic) I used Posit’s RStudio and I could only complete this project in R focusing the first previous 6 months: November 2023 to April 2024 (‘202311-divvy-tripdata.csv’ → ‘202404-divvy-tripdata.csv’) because Posit’s RStudio not crashed due to Memory Usage. However, using Python for this project, I don't have this Memory Usage problem and I was able to do a more complete analysis, completing further anaysis points identified in the previous study in R. 
 
 The Cyclistic’s historical trip data is available to download in zip files (‘202401-divvy-tripdata.zip’ to ‘202412-divvy-tripdata.zip’). After downloaded and stored in a folder (1.OriginalData), the zip files were unzipped locally giving the original .CSV data files (‘202401-divvy-tripdata.csv’ to ‘202412-divvy-tripdata.csv’). This study uses Python 3.8 for the analysis because it is a widely used programming language in data analytics, providing extensive data libraries.
 
