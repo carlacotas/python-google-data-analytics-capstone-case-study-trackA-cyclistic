@@ -1,7 +1,7 @@
 # Google Data Analytics Course - Capstone Project using Python (January 2025)
 # Case study: How does a bike-share navigate speedy success?  🚴🚲👩‍💻📈📊
 
-This project contains a solution using python for the Capstone of [Google Data Analytics Professional Certificate Program](https://www.coursera.org/professional-certificates/google-data-analytics) from [Google](https://www.coursera.org/google-career-certificates) 
+This project contains a solution using Python for the Capstone of [Google Data Analytics Professional Certificate Program](https://www.coursera.org/professional-certificates/google-data-analytics) from [Google](https://www.coursera.org/google-career-certificates) 
 
 > This project was inspired by a [previous implementation](https://github.com/carlacotas/google-data-analytics-capstone-case-study-trackA-cyclistic) I developed using the R programming language. Although this version using Python is a distinct solution, some phrases and ideas in the presentation of this solution may be similar to the original R project. This is intentional, as the challenge and problem-solving approach remains consistent across both implementations.
 
@@ -93,7 +93,18 @@ The local directory, folders, sub-folders and file-naming conventions follow the
 ```
 
 
-
 ### Data Source
 
+Cyclistic’s historical trip data to analyze and identify trends is available [here](https://divvy-tripdata.s3.amazonaws.com/index.html).
 
+This study analyzes and identifies trends from the previous 12 months: January 2024 to December 2024 (‘202401-divvy-tripdata.csv’ → ‘202412-divvy-tripdata.csv’).
+
+*The data has been made available by Motivate International Inc. under this [license](https://divvybikes.com/data-license-agreement). This is public data that can use to explore how different customer types are using Cyclistic bikes. But note that data-privacy issues prohibit from using riders’ personally identifiable information. This means that you won’t be able to connect pass purchases to credit card numbers to determine if casual riders live in the Cyclistic service area or if they have purchased multiple single passes.*
+
+### Data Preparation
+
+> ⚠️ **Note:** Im my [previous implementation](https://github.com/carlacotas/google-data-analytics-capstone-case-study-trackA-cyclistic) I used Posit’s RStudio and I could only complete this project in R focusing the first previous 6 months: November 2023 to April 2024 (‘202311-divvy-tripdata.csv’ → ‘202404-divvy-tripdata.csv’) because Posit’s RStudio not crashed due to Memory Usage. However, using Python for this project, I dodn't have this Memory Usage problem and I was able to do a more complete analysis, completing further anaysis points identified in the previous study in R. 
+
+The Cyclistic’s historical trip data is available to download in zip files (‘202401-divvy-tripdata.zip’ to ‘202412-divvy-tripdata.zip’). After downloaded and stored in a folder (1.OriginalData), the zip files were unzipped locally giving the original .CSV data files (‘202401-divvy-tripdata.csv’ to ‘202412-divvy-tripdata.csv’). This study uses Python 3.8 for the analysis because it is a widely used programming language in data analytics, providing extensive data libraries.
+
+The original data files, naming convention of YYYYMM-divvy-tripdata, were loaded into Python and renamed for simplicity and improve readability.
