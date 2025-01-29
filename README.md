@@ -105,6 +105,35 @@ This study analyzes and identifies trends from the previous 12 months: January 2
 
 > ⚠️ **Note:** Im my [previous implementation](https://github.com/carlacotas/google-data-analytics-capstone-case-study-trackA-cyclistic) I used Posit’s RStudio and I could only complete this project in R focusing the first previous 6 months: November 2023 to April 2024 (‘202311-divvy-tripdata.csv’ → ‘202404-divvy-tripdata.csv’) because Posit’s RStudio not crashed due to Memory Usage. However, when using Python for this project, I don't have this Memory Usage problem and I was able to do a more complete analysis, completing [further anaysis points](https://github.com/carlacotas/google-data-analytics-capstone-case-study-trackA-cyclistic?tab=readme-ov-file#act) identified in the previous study in R. 
 
-The Cyclistic’s historical trip data is available to download in zip files (‘202401-divvy-tripdata.zip’ to ‘202412-divvy-tripdata.zip’). After downloaded and stored in a folder (1.OriginalData), the zip files were unzipped locally giving the original .CSV data files (‘202401-divvy-tripdata.csv’ to ‘202412-divvy-tripdata.csv’). This study uses Python 3.8 for the analysis because it is a widely used programming language in data analytics, providing extensive data libraries.
+The Cyclistic’s historical trip data is available to download in zip files (‘202401-divvy-tripdata.zip’ to ‘202412-divvy-tripdata.zip’). After downloaded and stored in a folder (1.OriginalData), the zip files were unzipped locally giving the original .CSV data files (‘202401-divvy-tripdata.csv’ to ‘202412-divvy-tripdata.csv’). This study uses Python 3.11 for the analysis because it is a widely used programming language in data analytics, providing extensive data libraries.
 
-The original data files, naming convention of YYYYMM-divvy-tripdata, were loaded into Python and renamed for simplicity and improve readability.
+The original data files, naming convention of YYYYMM-divvy-tripdata, were imported into Python.
+
+```
+#import the original data files
+
+CyclisticTripData_2024_01 = pd.read_csv('~/projects/20250109_CyclisticBikeShare/1.OriginalData/202401-divvy-tripdata.csv')
+CyclisticTripData_2024_02 = pd.read_csv('~/projects/20250109_CyclisticBikeShare/1.OriginalData/202402-divvy-tripdata.csv')
+CyclisticTripData_2024_03 = pd.read_csv('~/projects/20250109_CyclisticBikeShare/1.OriginalData/202403-divvy-tripdata.csv')
+CyclisticTripData_2024_04 = pd.read_csv('~/projects/20250109_CyclisticBikeShare/1.OriginalData/202404-divvy-tripdata.csv')
+CyclisticTripData_2024_05 = pd.read_csv('~/projects/20250109_CyclisticBikeShare/1.OriginalData/202405-divvy-tripdata.csv')
+CyclisticTripData_2024_06 = pd.read_csv('~/projects/20250109_CyclisticBikeShare/1.OriginalData/202406-divvy-tripdata.csv')
+CyclisticTripData_2024_07 = pd.read_csv('~/projects/20250109_CyclisticBikeShare/1.OriginalData/202407-divvy-tripdata.csv')
+CyclisticTripData_2024_08 = pd.read_csv('~/projects/20250109_CyclisticBikeShare/1.OriginalData/202408-divvy-tripdata.csv')
+CyclisticTripData_2024_09 = pd.read_csv('~/projects/20250109_CyclisticBikeShare/1.OriginalData/202409-divvy-tripdata.csv')
+CyclisticTripData_2024_10 = pd.read_csv('~/projects/20250109_CyclisticBikeShare/1.OriginalData/202410-divvy-tripdata.csv')
+CyclisticTripData_2024_11 = pd.read_csv('~/projects/20250109_CyclisticBikeShare/1.OriginalData/202411-divvy-tripdata.csv')
+CyclisticTripData_2024_12 = pd.read_csv('~/projects/20250109_CyclisticBikeShare/1.OriginalData/202412-divvy-tripdata.csv')
+
+print('Importing original data files completed!')
+
+```
+
+A check summary data of each dataframe about structure and information was performed for exploring consistency in the column numbers to ensure the same number of columns and the same column names before moving to the next step and merge them in only one data set.
+
+```
+CyclisticTripData_2024_01.info()
+```
+![image](https://github.com/user-attachments/assets/72df52a0-64ff-4c0e-998c-e03eda92bae2)
+
+
