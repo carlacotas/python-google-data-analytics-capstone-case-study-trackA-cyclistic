@@ -199,3 +199,18 @@ Key findings:
 - the column labels include ride id, rideable type, started and ended time, start and end station - name, id, latitude and longitude - and member type
 - the number of observations is different every month
 
+
+The data can be trusted, it is published in a trustworthiness source and it is aligned with the question that was assigned to me. However, all ride ids are unique and due to data privacy prohibiting using rider's personally identifiable information, it will not be possible to determine if riders have purchased multiple single passes and, also, determine if riders live in the Cyclistic service area. Now that a description of all data sources used has been explored, the data is ready to be processed and cleaned for analysis.
+
+<br/>
+
+## Process
+
+In this step, the 12 dataframes are combined into one dataframe, clean it and manipulate it.
+
+### Data cleaning
+
+Before combining 
+
+
+
