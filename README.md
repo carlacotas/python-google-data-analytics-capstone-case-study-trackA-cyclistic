@@ -192,3 +192,10 @@ CyclisticTripData_2024_01.info()
 ![image](https://github.com/user-attachments/assets/8c32c633-58d1-4b8d-ad04-e466750c83a5)
 
 
+Key findings:
+- the data is organized in CSV (comma-separated values) format
+- there are consistency in the column numbers and column names
+- there are consistency on the column types, 4 columns has data type _‘float64’_ and 9 columns has data type _‘object’_
+- the column labels include ride id, rideable type, started and ended time, start and end station - name, id, latitude and longitude - and member type
+- the number of observations is different every month
+
