@@ -239,8 +239,6 @@ CyclisticTripData.head()
 CyclisticTripData.tail()
 ```
 
-From looking at the output information, there are no columns to be removed. All the data collected can be used to get insights for the analysis.
-
 And, the CyclisticTripData dataframe looks like
 
 | ride_id |	rideable_type |	started_at	| ended_at | start_station_name	| start_station_id |	end_station_name	| end_station_id	| start_lat |	start_lng |	end_lat |	end_lng |	member_casual |
@@ -259,6 +257,23 @@ And, the CyclisticTripData dataframe looks like
 |**178369**	| 15602635C5DF484E	| electric_bike	| 2024-12-31 17:10:03.113	| 2024-12-31 17:17:21.838	| Albany Ave & Bloomingdale Ave |	15655 |	California Ave & Milwaukee Ave |	13084	| 41.914027 |	-87.705126 |	41.922695 |	-87.697153 |	member |
 |**178370**	| F15ABBA961560B75	| electric_bike	| 2024-12-01 14:39:47.216	| 2024-12-01 14:45:21.268	| Albany Ave & Bloomingdale Ave	| 15655	| California Ave & Milwaukee Ave |	13084	| 41.914003	| -87.705099 |	41.922695	| -87.697153 |	member |
 |**178371**	| 8AF273287533B527	| electric_bike	| 2024-12-17 06:38:32.320	| 2024-12-17 06:46:27.167	| Albany Ave & Bloomingdale Ave	| 15655	| NaN |	NaN	| 41.914027 |	-87.705126 |	41.920000 |	-87.690000 |	member |
+
+From looking at the output information, there are no columns to be removed. All the data collected can be used to get insights for the analysis. Moreover, from looking at the output information from the last 5 rows, NaN values are observed.
+
+Now, the large dataframe is ready to check that data is clean, free of errors and check if modifying data is needed.
+
+> Note: The large dataframe is exported to .CSV file for a saved version.
+
+```
+CyclisticTripData.to_csv('~/projects/20250109_CyclisticBikeShare/2.PreparedData/20250205_CyclisticTripData.csv', index=False)
+```
+
+### Data manipulation
+
+Next, a closer look at data is taken to check for duplicates, null values, and inconsistency on values that needs to be cleaned.
+
+
+
 
 
 
