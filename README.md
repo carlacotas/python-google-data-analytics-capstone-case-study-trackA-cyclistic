@@ -215,18 +215,11 @@ The consistency in column names, column types and number of columns in each data
 ```
 #combining the 12 dataframes into only 1 dataframe
 
-CyclisticTripData = pd.concat([CyclisticTripData_2024_01, 
-                               CyclisticTripData_2024_02,
-                               CyclisticTripData_2024_03,
-                               CyclisticTripData_2024_04,
-                               CyclisticTripData_2024_05,
-                               CyclisticTripData_2024_06,
-                               CyclisticTripData_2024_07,
-                               CyclisticTripData_2024_08,
-                               CyclisticTripData_2024_09,
-                               CyclisticTripData_2024_10,
-                               CyclisticTripData_2024_11,
-                               CyclisticTripData_2024_12])
+dataframes = [CyclisticTripData_2024_01, CyclisticTripData_2024_02, CyclisticTripData_2024_03, 
+              CyclisticTripData_2024_04, CyclisticTripData_2024_05, CyclisticTripData_2024_06,
+              CyclisticTripData_2024_07, CyclisticTripData_2024_08, CyclisticTripData_2024_09,
+              CyclisticTripData_2024_10, CyclisticTripData_2024_11, CyclisticTripData_2024_12]
+CyclisticTripData = pd.concat(dataframes, ignore_index=True)
 ```
 
 Then the large dataframe can be verified to check very quickly uniformities and to get a better data sensitivity.
@@ -252,11 +245,11 @@ And, the CyclisticTripData dataframe looks like
 
 | ride_id |	rideable_type |	started_at	| ended_at | start_station_name	| start_station_id |	end_station_name	| end_station_id	| start_lat |	start_lng |	end_lat |	end_lng |	member_casual |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-|**178367** |	BD56BA20F42E4794	| electric_bike	| 2024-12-11 08:23:46.564	| 2024-12-11 08:37:34.532 |	Clybourn Ave & Division St	| TA1307000115	| NaN |	NaN	| 41.904634 |	-87.640518 |	41.880000 |	-87.630000	| member |
-|**178368**	| 3074643A6B60B300	| electric_bike	| 2024-12-09 12:26:15.677	| 2024-12-09 12:37:32.712	| Canal St & Jackson Blvd	| 13138	| NaN	| NaN	| 41.878125 |	-87.639968 |	41.900000 |	-87.620000	| member |
-|**178369**	| 15602635C5DF484E	| electric_bike	| 2024-12-31 17:10:03.113	| 2024-12-31 17:17:21.838	| Albany Ave & Bloomingdale Ave |	15655 |	California Ave & Milwaukee Ave |	13084	| 41.914027 |	-87.705126 |	41.922695 |	-87.697153 |	member |
-|**178370**	| F15ABBA961560B75	| electric_bike	| 2024-12-01 14:39:47.216	| 2024-12-01 14:45:21.268	| Albany Ave & Bloomingdale Ave	| 15655	| California Ave & Milwaukee Ave |	13084	| 41.914003	| -87.705099 |	41.922695	| -87.697153 |	member |
-|**178371**	| 8AF273287533B527	| electric_bike	| 2024-12-17 06:38:32.320	| 2024-12-17 06:46:27.167	| Albany Ave & Bloomingdale Ave	| 15655	| NaN |	NaN	| 41.914027 |	-87.705126 |	41.920000 |	-87.690000 |	member |
+|**5860563** |	BD56BA20F42E4794	| electric_bike	| 2024-12-11 08:23:46.564	| 2024-12-11 08:37:34.532 |	Clybourn Ave & Division St	| TA1307000115	| NaN |	NaN	| 41.904634 |	-87.640518 |	41.880000 |	-87.630000	| member |
+|**5860564**	| 3074643A6B60B300	| electric_bike	| 2024-12-09 12:26:15.677	| 2024-12-09 12:37:32.712	| Canal St & Jackson Blvd	| 13138	| NaN	| NaN	| 41.878125 |	-87.639968 |	41.900000 |	-87.620000	| member |
+|**5860565**	| 15602635C5DF484E	| electric_bike	| 2024-12-31 17:10:03.113	| 2024-12-31 17:17:21.838	| Albany Ave & Bloomingdale Ave |	15655 |	California Ave & Milwaukee Ave |	13084	| 41.914027 |	-87.705126 |	41.922695 |	-87.697153 |	member |
+|**5860566**	| F15ABBA961560B75	| electric_bike	| 2024-12-01 14:39:47.216	| 2024-12-01 14:45:21.268	| Albany Ave & Bloomingdale Ave	| 15655	| California Ave & Milwaukee Ave |	13084	| 41.914003	| -87.705099 |	41.922695	| -87.697153 |	member |
+|**5860567**	| 8AF273287533B527	| electric_bike	| 2024-12-17 06:38:32.320	| 2024-12-17 06:46:27.167	| Albany Ave & Bloomingdale Ave	| 15655	| NaN |	NaN	| 41.914027 |	-87.705126 |	41.920000 |	-87.690000 |	member |
 
 From looking at the output information, there are no columns to be removed. All the data collected can be used to get insights for the analysis. Moreover, from looking at the output information from the last 5 rows, NaN values are observed.
 
