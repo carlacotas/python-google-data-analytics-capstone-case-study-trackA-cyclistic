@@ -276,7 +276,8 @@ print("Duplicate Observations:", duplicate)
 
 There are 211 duplicates. A closer look at the duplicates allowed to identify that the duplicates correspond to data duplicated in month 05 and 06, and recordings started on 2024-05-31 and finishing on 2024-06-01. Moreover, the data collected changed time format from HH:MM:SS, until month 05, to HH:MM:SS.SSS, after month 06. Then I first proceeded to make consistency the date format to match HH:MM:SS considering the purpose of the analysis.
 
-
-
+```
+CyclisticTripData[['started_at', 'ended_at']] = CyclisticTripData[['started_at', 'ended_at']].apply(lambda x: pd.to_datetime(x, format='mixed').dt.strftime('%Y-%m-%d %H:%M:%S'))
+```
 
 
