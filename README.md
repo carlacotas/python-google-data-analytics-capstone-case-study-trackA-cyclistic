@@ -265,6 +265,16 @@ CyclisticTripData.to_csv('~/projects/20250109_CyclisticBikeShare/2.PreparedData/
 
 Next, a closer look at data is taken to check for duplicates, null values, and inconsistency on values that needs to be cleaned.
 
+```
+#find 'ride_id' DUPLICATES
+duplicate_number = CyclisticTripData['ride_id'].duplicated().sum()
+duplicate = CyclisticTripData[CyclisticTripData['ride_id'].duplicated()]
+
+print("Number of duplicate ride_id:", duplicate_number)
+print("Duplicate Observations:", duplicate)
+```
+
+There are 211 duplicates. A closer look at the duplicates allowed to identify that the duplicates correspond to data duplicated in month 05 and 06, and recordings started on 2024-05-31 and finishing on 2024-06-01. Moreover, the data collected changed time format from HH:MM:SS, until month 05, to HH:MM:SS.SSS, after month 06. Then I first proceeded to standardize the date format to match HH:MM:SS considering the purpose of the analysis.
 
 
 
