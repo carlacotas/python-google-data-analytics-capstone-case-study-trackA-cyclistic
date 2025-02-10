@@ -274,10 +274,53 @@ print("Number of duplicate ride_id:", duplicate_number)
 print("Duplicate Observations:", duplicate)
 ```
 
-There are 211 duplicates. A closer look at the duplicates allowed to identify that the duplicates correspond to data duplicated in month 05 and 06, and recordings started on 2024-05-31 and finishing on 2024-06-01. Moreover, the data collected changed time format from HH:MM:SS, until month 05, to HH:MM:SS.SSS, after month 06. Then I first proceeded to make consistency the date format to match HH:MM:SS considering the purpose of the analysis.
+- There are 211 duplicates. A closer look at the duplicates allowed to identify that the duplicates correspond to data duplicated in month 05 and 06, and recordings started on 2024-05-31 and finishing on 2024-06-01. Moreover, the data collected changed time format from HH:MM:SS, until month 05, to HH:MM:SS.SSS, after month 06. Then I first proceeded to make consistency the date format to match HH:MM:SS considering the purpose of the analysis.
 
 ```
 CyclisticTripData[['started_at', 'ended_at']] = CyclisticTripData[['started_at', 'ended_at']].apply(lambda x: pd.to_datetime(x, format='mixed').dt.strftime('%Y-%m-%d %H:%M:%S'))
 ```
 
+And, then I get only one record for each duplicate.
+
+```
+count_row_initial = CyclisticTripData.shape[0]
+CyclisticTripData = CyclisticTripData.drop_duplicates(keep='first')
+count_row_keep_one = CyclisticTripData.shape[0]
+
+print('Duplicate rows removed:', count_row_initial - count_row_keep_one)
+```
+
+Next, a closer look at data with unique observations is taken to check for null or empty cells.
+
+```
+nan_count = CyclisticTripData.isna().sum().sum()
+null_count = CyclisticTripData.isnull().sum().sum()
+nan_count_column = CyclisticTripData.isna().sum()
+null_count_column = CyclisticTripData.isnull().sum()
+
+print('Number of NaN values in each column:', nan_count_column)
+print('Number of null values in each column:', null_count_column)
+print('Number of NaN values:', nan_count)
+print('Number of null values:', null_count)
+```
+
+![image](https://github.com/user-attachments/assets/d17017cb-0ca2-4e9b-8663-5756505a763f)
+
+- There are 4371386 total number of NaN or null values. These values are observed in a mixed way without a pattern in columns 'start_station_name', 'start_station_id', 'end_station_name', 'end_station_id', 'end_lat' and 'end_long'. Then, the observations where there are NaN or null values can be removed.
+- In the end, the large dataframe has now 4208188 observations and 13 features.
+
+Now, the consistency on characters length across columns can be checked.
+
+```
+#check for consistency on number of characters across columns
+max_char = CyclisticTripData.astype(str).map(len).max()
+min_char = CyclisticTripData.astype(str).map(len).min()
+
+# Display the results
+print('Maximum character length per column:', max_char)
+print('Minimum character length per column:', min_char)
+```
+![image](https://github.com/user-attachments/assets/d92cb354-a785-4b68-ac28-81ac0a8df30c)
+
+- There are consistency on characters length on columns 'ride_id', 'started_at', 'ended_at' and 'member_casual'.
 
