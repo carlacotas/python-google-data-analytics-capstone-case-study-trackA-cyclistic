@@ -320,5 +320,28 @@ print('Minimum character length per column:', min_char)
 
 Finally, the uniqued values for columnns 'rideable_type' and 'member_casual' can be checked.
 
+```
+rideable_type_unique = CyclisticTripData['rideable_type'].unique()
+rideable_type_counts = CyclisticTripData['rideable_type'].value_counts()
+member_casual_unique = CyclisticTripData['member_casual'].unique()
+member_casual_counts = CyclisticTripData['member_casual'].value_counts()
+
+print("'rideable_type' values:", rideable_type_unique)
+print("'rideable_type' total number:", rideable_type_counts)
+print("'member_casual' values:", member_casual_unique)
+print("'member_casual' total number:", member_casual_counts)
+```
+
+- There are "member" and "casual" at 'member_casual' column.
+  
+![image](https://github.com/user-attachments/assets/5971e958-f55a-4753-9520-61cc76d53674)
+  
+- There are "electric_bike", "classic_bike" and "electric_scooter" at 'rideable_type' column.
+  
+![image](https://github.com/user-attachments/assets/70ed694b-bbfa-4914-9424-0605c170acc4)
+
+
+Now, the data is ready to the transform and calculation steps to know the ride length, month, day of week and hour of the day.
+
 
 
