@@ -110,8 +110,6 @@ The Cyclisticâ€™s historical trip data is available to download in zip files (â€
 The original data files, naming convention of YYYYMM-divvy-tripdata, were imported into Python.
 
 ```
-#import the original data files
-
 CyclisticTripData_2024_01 = pd.read_csv('~/projects/20250109_CyclisticBikeShare/1.OriginalData/202401-divvy-tripdata.csv')
 CyclisticTripData_2024_02 = pd.read_csv('~/projects/20250109_CyclisticBikeShare/1.OriginalData/202402-divvy-tripdata.csv')
 CyclisticTripData_2024_03 = pd.read_csv('~/projects/20250109_CyclisticBikeShare/1.OriginalData/202403-divvy-tripdata.csv')
@@ -213,8 +211,6 @@ In this step, the 12 dataframes are combined into one dataframe, clean it and ma
 The consistency in column names, column types and number of columns in each dataframe makes it possible that the 12 dataframes can be combined into only one dataframe for analyzing 12 months of data.
 
 ```
-#combining the 12 dataframes into only 1 dataframe
-
 dataframes = [CyclisticTripData_2024_01, CyclisticTripData_2024_02, CyclisticTripData_2024_03, 
               CyclisticTripData_2024_04, CyclisticTripData_2024_05, CyclisticTripData_2024_06,
               CyclisticTripData_2024_07, CyclisticTripData_2024_08, CyclisticTripData_2024_09,
@@ -266,7 +262,6 @@ CyclisticTripData.to_csv('~/projects/20250109_CyclisticBikeShare/2.PreparedData/
 Next, a closer look at data is taken to check for duplicates, null values, and inconsistency on values that needs to be cleaned.
 
 ```
-#find 'ride_id' DUPLICATES
 duplicate_number = CyclisticTripData['ride_id'].duplicated().sum()
 duplicate = CyclisticTripData[CyclisticTripData['ride_id'].duplicated()]
 
@@ -312,15 +307,18 @@ print('Number of null values:', null_count)
 Now, the consistency on characters length across columns can be checked.
 
 ```
-#check for consistency on number of characters across columns
 max_char = CyclisticTripData.astype(str).map(len).max()
 min_char = CyclisticTripData.astype(str).map(len).min()
 
-# Display the results
 print('Maximum character length per column:', max_char)
 print('Minimum character length per column:', min_char)
 ```
 ![image](https://github.com/user-attachments/assets/d92cb354-a785-4b68-ac28-81ac0a8df30c)
 
 - There are consistency on characters length on columns 'ride_id', 'started_at', 'ended_at' and 'member_casual'.
+- Columns 'start_station_id', 'start_station_name', 'end_station_id' and 'end_station_name' will be kept for now, but if they do not add value in future steps, they can be removed.
+
+Finally, the uniqued values for columnns 'rideable_type' and 'member_casual' can be checked.
+
+
 
