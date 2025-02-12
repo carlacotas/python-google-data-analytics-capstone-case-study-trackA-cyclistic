@@ -343,5 +343,23 @@ print("'member_casual' total number:", member_casual_counts)
 
 Now, the data is ready to the transform and calculation steps to know the ride length, month, day of week and hour of the day.
 
-New columns _ride_length_, _month_, _day_of_week_ and _hour_of_day_ are created to calculate (1) the length of each ride by subtracting the column _started_at_ from the column _ended_at_ and (2) the month, day of the week and hour of the day that each ride started, respectivelly. Both columns _started_at_ and _ended_at_ are consistent and have the start and end time in the format YYYY-MM-DD hh:mm:ss.
+New columns _ride_length_, _month_, _day_of_week_, _day_of_month_ and _hour_of_day_ are created to calculate (1) the length of each ride by subtracting the column _started_at_ from the column _ended_at_ and (2) the month, day of the week, day of the month and hour of the day that each ride started, respectivelly. Both columns _started_at_ and _ended_at_ are consistent and have the start and end time in the format YYYY-MM-DD hh:mm:ss.
+
+```
+CyclisticTripData['hour'] = pd.DatetimeIndex(CyclisticTripData["started_at"]).hour
+CyclisticTripData['day_of_month'] = pd.DatetimeIndex(CyclisticTripData["started_at"]).day
+CyclisticTripData['day_of_week'] = pd.DatetimeIndex(CyclisticTripData["started_at"]).day_name()
+CyclisticTripData['month'] = pd.DatetimeIndex(CyclisticTripData["started_at"]).month_name()
+
+CyclisticTripData['ride_length'] =  pd.to_datetime(CyclisticTripData['ended_at']) -  pd.to_datetime(CyclisticTripData['started_at'])
+CyclisticTripData['ride_length'] = CyclisticTripData['ride_length'].dt.total_seconds().astype(int)
+CyclisticTripData['ride_length'] = pd.to_datetime(CyclisticTripData['ride_length'], unit='s').dt.strftime('%H:%M:%S')
+
+CyclisticTripData.head(3)
+```
+
+Now, a closer look at data in the new columns is taken to check for consistency and meaning on values.
+
+
+
 
