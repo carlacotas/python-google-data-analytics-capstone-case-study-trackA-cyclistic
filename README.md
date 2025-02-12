@@ -360,6 +360,21 @@ CyclisticTripData.head(3)
 
 Now, a closer look at data in the new columns is taken to check for consistency and meaning on values.
 
+```
+month_unique = CyclisticTripData['month'].unique()
+day_of_week_unique = CyclisticTripData['day_of_week'].unique()
+hour_min = CyclisticTripData['hour'].min()
+hour_max = CyclisticTripData['hour'].max()
+day_of_month_min = CyclisticTripData['day_of_month'].min()
+day_of_month_max = CyclisticTripData['day_of_month'].max()
+ride_length_min = CyclisticTripData['ride_length_seconds'].min()
+ride_length_max = CyclisticTripData['ride_length_seconds'].max()
 
+print("'month' values:", month_unique)
+print("'day_of_week' total number:", day_of_week_unique)
+print(f'minimun hour is {hour_min} and maximum hour is {hour_max}')
+print(f'minimun day of month is {day_of_month_min} and maximum day of month is {day_of_month_max}')
+print(f'minimun ride length is {ride_length_min} seconds and maximum ride length is {ride_length_max}' seconds)
+```
 
-
+Key findings:
