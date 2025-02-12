@@ -269,13 +269,13 @@ print("Number of duplicate ride_id:", duplicate_number)
 print("Duplicate Observations:", duplicate)
 ```
 
-- There are 211 duplicates. A closer look at the duplicates allowed to identify that the duplicates correspond to data duplicated in month 05 and 06, and recordings started on 2024-05-31 and finishing on 2024-06-01. Moreover, the data collected changed time format from HH:MM:SS, until month 05, to HH:MM:SS.SSS, after month 06. Then I first proceeded to make consistency the date format to match HH:MM:SS considering the purpose of the analysis.
+- There are 211 duplicates. A closer look at the duplicates allowed to identify that the duplicates correspond to data duplicated in month 05 and 06, and recordings started on 2024-05-31 and finishing on 2024-06-01. Moreover, the data collected changed time format from HH:MM:SS, until month 05, to HH:MM:SS.SSS, after month 06. Then, considering the purpose of the analysis, it was proceeded to make consistency in the date format to match HH:MM:SS.
 
 ```
 CyclisticTripData[['started_at', 'ended_at']] = CyclisticTripData[['started_at', 'ended_at']].apply(lambda x: pd.to_datetime(x, format='mixed').dt.strftime('%Y-%m-%d %H:%M:%S'))
 ```
 
-And, then I get only one record for each duplicate.
+And, then just keep only one record for each duplicate.
 
 ```
 count_row_initial = CyclisticTripData.shape[0]
@@ -301,8 +301,8 @@ print('Number of null values:', null_count)
 
 ![image](https://github.com/user-attachments/assets/d17017cb-0ca2-4e9b-8663-5756505a763f)
 
-- There are 4371386 total number of NaN or null values. These values are observed in a mixed way without a pattern in columns 'start_station_name', 'start_station_id', 'end_station_name', 'end_station_id', 'end_lat' and 'end_long'. Then, the observations where there are NaN or null values can be removed.
-- In the end, the large dataframe has now 4208188 observations and 13 features.
+- There are 4371386 total number of NaN or null values. These values are observed in a "mixed way" without a pattern in columns 'start_station_name', 'start_station_id', 'end_station_name', 'end_station_id', 'end_lat' and 'end_long'. Then, the observations where there are NaN or null values can be removed.
+- In the end, the large dataframe was left with 4208188 observations and 13 features.
 
 Now, the consistency on characters length across columns can be checked.
 
@@ -315,10 +315,10 @@ print('Minimum character length per column:', min_char)
 ```
 ![image](https://github.com/user-attachments/assets/d92cb354-a785-4b68-ac28-81ac0a8df30c)
 
-- There are consistency on characters length on columns 'ride_id', 'started_at', 'ended_at' and 'member_casual'.
-- Columns 'start_station_id', 'start_station_name', 'end_station_id' and 'end_station_name' will be kept for now, but if they do not add value in future steps, they can be removed.
+- There are consistency on characters length on columns _ride_id_, _started_at_, _ended_at_ and _member_casual_.
+- Columns _start_station_id_, _start_station_name_, _end_station_id_ and _end_station_name_ will be kept for now, but most likely they do not add value in future steps, giving the possibility of being removed later.
 
-Finally, the uniqued values for columnns 'rideable_type' and 'member_casual' can be checked.
+Finally, the uniqued values for columnns _rideable_type_ and _member_casual_ can be checked.
 
 ```
 rideable_type_unique = CyclisticTripData['rideable_type'].unique()
@@ -332,16 +332,16 @@ print("'member_casual' values:", member_casual_unique)
 print("'member_casual' total number:", member_casual_counts)
 ```
 
-- There are "member" and "casual" at 'member_casual' column.
+- There are "member" and "casual" at _member_casual_ column.
   
 ![image](https://github.com/user-attachments/assets/5971e958-f55a-4753-9520-61cc76d53674)
   
-- There are "electric_bike", "classic_bike" and "electric_scooter" at 'rideable_type' column.
+- There are "electric_bike", "classic_bike" and "electric_scooter" at _rideable_type_ column.
   
 ![image](https://github.com/user-attachments/assets/70ed694b-bbfa-4914-9424-0605c170acc4)
 
 
 Now, the data is ready to the transform and calculation steps to know the ride length, month, day of week and hour of the day.
 
-
+New columns _ride_length_, _month_, _day_of_week_ and _hour_of_day_ are created to calculate (1) the length of each ride by subtracting the column _started_at_ from the column _ended_at_ and (2) the month, day of the week and hour of the day that each ride started, respectivelly. Both columns _started_at_ and _ended_at_ are consistent and have the start and end time in the format YYYY-MM-DD hh:mm:ss.
 
