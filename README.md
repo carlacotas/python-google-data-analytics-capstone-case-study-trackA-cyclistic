@@ -341,7 +341,7 @@ print("'member_casual' total number:", member_casual_counts)
 ![image](https://github.com/user-attachments/assets/70ed694b-bbfa-4914-9424-0605c170acc4)
 
 
-Now, the data is ready to the transform and calculation steps to know the ride length, month, day of week and hour of the day.
+Now, the data is ready to the transform and calculation steps to know the ride length, month, day of the month, day of week and hour of the day.
 
 New columns _ride_length_, _month_, _day_of_week_, _day_of_month_ and _hour_of_day_ are created to calculate (1) the length of each ride by subtracting the column _started_at_ from the column _ended_at_ and (2) the month, day of the week, day of the month and hour of the day that each ride started, respectivelly. Both columns _started_at_ and _ended_at_ are consistent and have the start and end time in the format YYYY-MM-DD hh:mm:ss.
 
@@ -370,11 +370,42 @@ day_of_month_max = CyclisticTripData['day_of_month'].max()
 ride_length_min = CyclisticTripData['ride_length_seconds'].min()
 ride_length_max = CyclisticTripData['ride_length_seconds'].max()
 
+ride_length_zeronegative = (CyclisticTripData['ride_length_seconds'] <= 0).sum().sum()
+
+
 print("'month' values:", month_unique)
 print("'day_of_week' total number:", day_of_week_unique)
 print(f'minimun hour is {hour_min} and maximum hour is {hour_max}')
 print(f'minimun day of month is {day_of_month_min} and maximum day of month is {day_of_month_max}')
-print(f'minimun ride length is {ride_length_min} seconds and maximum ride length is {ride_length_max}' seconds)
+print(f'minimun ride length is {ride_length_min} seconds and maximum ride length is {ride_length_max} seconds')
+print(f'There are {ride_length_zeronegative} observations with negative or zero ride length')
 ```
 
 Key findings:
+- There are consistency on the day of the week that each ride started, with unique values corresponding to the names of the days of the week
+![image](https://github.com/user-attachments/assets/e739b34a-d115-4e5d-a482-e9964720e675)
+
+- There are consistency on months with unique values corresponding to the months of a year
+![image](https://github.com/user-attachments/assets/a67b9ae2-4e32-4b44-bc8b-5f649feb2911)
+
+- There are consistency on hours and day of the month
+![image](https://github.com/user-attachments/assets/f605d51d-e3f3-4961-bb25-68ed6656651f)
+
+- There are at least one negative value on ride length. And, at least one value lasting little more than a day (circa 25 hours)
+![image](https://github.com/user-attachments/assets/dc971ac0-d9c4-4970-9b60-b1a4a917590e)
+
+- There are 213 observations with negative ride length or equal to 00:00:00
+
+- At the end, the data ready for analysis has 4207975 observations and 19 features
+
+## Analyze
+
+Once the data is prepared, processed, and stored appropriately, it's ready for analyze it to find trends or relationships and, also, we can discover some surprises in the data. This will help to find how will these insights help answer the question assigned to me.
+This step includes conducting descriptive analysis and identifying trends and relationships.
+
+For this step, I followed the Case Study Roadmap for the Data Analyze. And, I started by looking the following questions:
+- How should you organize your data to perform analysis on it?
+- Has your data been properly formatted?
+- What surprises did you discover in the data?
+
+
