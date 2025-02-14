@@ -409,3 +409,25 @@ For this step, I followed the Case Study Roadmap for the Data Analyze. And, I st
 - What surprises did you discover in the data?
 
 
+
+<br/>
+
+## What's in this project? 👩‍💻
+
+`README.md`: That's this file, where you can describe your project and how you built it.
+
+<p/>
+  
+`20250109_Python_CyclisticBikeShareCapstone.ipynb`: That's Jupyter notebook with the code for this project.
+
+<p/>
+
+
+<br/>
+
+## Resources
+
+[Background and Business Question](#background-and-business-question) was inspired by the business case description provided on [Google Data Analytics Capstone: Complete a Case Study](https://www.coursera.org/learn/google-data-analytics-capstone)
+
+<p/>
+
